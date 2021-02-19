@@ -1,17 +1,16 @@
-// Requirements
+// Importações
 const mongoose = require("mongoose");
 const express = require("express");
 const AdminBro = require("admin-bro");
 const AdminBroExpressjs = require("@admin-bro/express");
 const bcrypt = require("bcrypt")
 
-// We have to tell AdminBro that we will manage mongoose resources with it
 AdminBro.registerAdapter(require("@admin-bro/mongoose"));
 
-// express server definition
+// Definição do servidor com express
 const app = express();
 
-// Resources definitions
+// Adicionar Usuário
 const User = mongoose.model("User", {
   nome: { type: String, required: true },
   CPF: { type: Number, required: true },
@@ -20,7 +19,7 @@ const User = mongoose.model("User", {
   role: { type: String, enum: ["Administrador", "Usuários"], required: true },
 });
 
-// Pass all configuration settings to AdminBro
+// Configuração do Bcrypt na senha do Usuário
 const adminBro = new AdminBro({
   resources: [{
     resource: User,
@@ -55,7 +54,7 @@ const adminBro = new AdminBro({
   rootPath: '/',
 })
 
-// Build and use a router which will handle all AdminBro routes
+// Rota de Login da pagina
 const router = AdminBroExpressjs.buildAuthenticatedRouter(adminBro, {
   authenticate: async (email, password) => {
     const user = await User.findOne({ email })
@@ -71,7 +70,7 @@ const router = AdminBroExpressjs.buildAuthenticatedRouter(adminBro, {
 })
 app.use(adminBro.options.rootPath, router);
 
-// Running the server
+// Banco de Dados da Aplicação e caminho do Servidor Nodejs
 const run = async () => {
   await mongoose.connect("mongodb+srv://Teste:teste@cluster0.qoocb.mongodb.net/MindConsulting?retryWrites=true&w=majority", {
     useNewUrlParser: true,
