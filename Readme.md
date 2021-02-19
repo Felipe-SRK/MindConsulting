@@ -1,4 +1,5 @@
 Execute no terminal "node app.js" para carregar a aplicação
+
 Endereço da aplicação "localhost:8080"
 
 Login para acesso ADM
