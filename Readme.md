@@ -1,3 +1,5 @@
+Video da aplicação rodando no meu ambiente de Desenvolvimento, (https://youtu.be/_1wZhFECcyY).
+
 Dependências do sistema:
 yarn add express express-formidable mongoose admin-bro @admin-bro/mongoose @admin-bro/express bcrypt cookie-parser express-session
 
