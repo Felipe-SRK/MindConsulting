@@ -1,18 +1,21 @@
 {
-  "name": "Teste",
+  "name": "curso",
   "version": "1.0.0",
+  "description": "curso node",
   "main": "index.js",
-  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@admin-bro/express": "^3.1.0",
-    "@admin-bro/mongoose": "^1.1.0",
-    "admin-bro": "^3.4.0",
     "bcrypt": "^5.0.0",
     "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "express-formidable": "^1.2.0",
-    "express-session": "^1.17.1",
-    "mongoose": "^5.11.17",
-    "tslib": "^2.1.0"
+    "mongoose": "^5.11.16",
+    "nodemon": "^2.0.7",
+    "path": "^0.12.7"
   }
 }
